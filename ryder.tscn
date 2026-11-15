@@ -1,0 +1,38 @@
+[gd_scene load_steps=7 format=3 uid="uid://yt5c7p8gsgyb"]
+
+[ext_resource type="Script" path="res://Ryder.gd" id="1_y4ojk"]
+[ext_resource type="Texture2D" uid="uid://dq20vrk8oakfq" path="res://sprite 1- Ryder.png" id="2_uo12f"]
+[ext_resource type="Texture2D" uid="uid://d1wki6wty665b" path="res://sprite 3- Ryder.png" id="3_ktxy5"]
+[ext_resource type="Texture2D" uid="uid://bjfh385lwdv5w" path="res://sprite 2- Ryder.png" id="4_ngo4i"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_hvdkr"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("2_uo12f")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_ktxy5")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_ngo4i")
+}],
+"loop": false,
+"name": &"Walk",
+"speed": 5.0
+}]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_1koy2"]
+size = Vector2(55, 100.5)
+
+[node name="Ryder" type="CharacterBody2D"]
+script = ExtResource("1_y4ojk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(-10, 45)
+sprite_frames = SubResource("SpriteFrames_hvdkr")
+animation = &"Walk"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(1.5, 11.25)
+shape = SubResource("RectangleShape2D_1koy2")
